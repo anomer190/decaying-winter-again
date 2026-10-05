@@ -1,0 +1,27 @@
+{
+  "ambientocclusion": false,
+  "render_type": "cutout",
+  "textures": {
+    "texture": "decayinhwintah:block/custom_marking",
+    "particle": "decayinhwintah:block/custom_marking"
+  },
+  "elements": [
+    {
+      "from": [0.05, 0, 0],
+      "to": [0.05, 16, 16],
+      "shade": false,
+      "faces": {
+        "west": {
+          "uv": [0, 0, 16, 16],
+          "texture": "#texture",
+          "tintindex": 0
+        },
+        "east": {
+          "uv": [16, 0, 0, 16],
+          "texture": "#texture",
+          "tintindex": 0
+        }
+      }
+    }
+  ]
+}

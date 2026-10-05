@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "decayinhwintah:block/green_rough_concrete"
+  }
+}

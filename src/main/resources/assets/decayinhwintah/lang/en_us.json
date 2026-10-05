@@ -1,4 +1,7 @@
 {
   "item.decayinhwintah.wood_scrap": "Wood Scraps",
-  "item.decayinhwintah.stone_scrap": "Stone Scraps"
+  "item.decayinhwintah.stone_scrap": "Stone Scraps",
+
+  "block.decayinhwintah.rough_concrete": "Light Gray Rough Concrete",
+  "block.decayinhwintah.green_rough_concrete": "Green Rough Concrete"
 }

@@ -6,6 +6,7 @@ import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
+import ron.silly.decayinhwintah.items.SprayCanItem;
 
 public class ModItems {
     public static final DeferredRegister<Item> ITEMS =
@@ -15,6 +16,8 @@ public class ModItems {
             () -> new Item(new Item.Properties()));
     public static final RegistryObject<Item> STONE_SCRAP = ITEMS.register("stone_scrap",
             () -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> SPRAY_CAN = ITEMS.register("spray_can",
+            () -> new SprayCanItem(new Item.Properties()));
 
 
     public static void register(IEventBus eventBus) {

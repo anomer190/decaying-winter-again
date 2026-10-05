@@ -28,6 +28,7 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import org.slf4j.Logger;
+import ron.silly.decayinhwintah.network.ModMessages;
 
 // The value here should match an entry in the META-INF/mods.toml file
 @Mod(Decayinhwintah.MODID)
@@ -48,6 +49,7 @@ public class Decayinhwintah {
         // BLOCKS.register(modEventBus);
         // Register the Deferred Register to the mod event bus so items get registered
         ModItems.register(modEventBus);
+        ModBlocks.register(modEventBus);
         // Register the Deferred Register to the mod event bus so tabs get registered
         // CREATIVE_MODE_TABS.register(modEventBus);
 
@@ -67,6 +69,10 @@ public class Decayinhwintah {
         LOGGER.info("DIRT BLOCK >> {}", ForgeRegistries.BLOCKS.getKey(Blocks.DIRT));
 
         if (Config.logDirtBlock) LOGGER.info("DIRT BLOCK >> {}", ForgeRegistries.BLOCKS.getKey(Blocks.DIRT));
+
+        event.enqueueWork(() -> {
+            ModMessages.register();
+        });
 
         LOGGER.info(Config.magicNumberIntroduction + Config.magicNumber);
 
