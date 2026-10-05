@@ -1,7 +1,10 @@
+// build.gradle
+
 plugins {
     id 'eclipse'
     id 'idea'
     id 'net.minecraftforge.gradle' version '[6.0.16,6.2)'
+    id 'org.spongepowered.mixin' version '0.7.+'
 }
 
 
@@ -139,10 +142,10 @@ dependencies {
     minecraft "net.minecraftforge:forge:${minecraft_version}-${forge_version}"
 
     // GeckoLib Dependency for Forge 1.20.1
-    implementation fg.deobf("software.bernie.geckolib:geckolib-forge-1.20.1:4.4.9")
+    implementation fg.deobf("software.bernie.geckolib:geckolib-forge-1.20.1:4.8.4")
 
-    // LDLib Dependency from Modrinth for Forge 1.20.1
-    implementation fg.deobf("maven.modrinth:ldlib:mc1.20.1-1.0.37-forge")
+    // LDLib Dependency from Modrinth for Forge 1.20.1 (fuck this thing)
+   // implementation fg.deobf("maven.modrinth:ldlib:mc1.20.1-1.0.48-forge")
 }
 
 
