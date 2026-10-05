@@ -28,6 +28,7 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import org.slf4j.Logger;
+import ron.silly.decayinhwintah.network.ModNetwork;
 
 // The value here should match an entry in the META-INF/mods.toml file
 @Mod(Decayinhwintah.MODID)
@@ -58,12 +59,14 @@ public class Decayinhwintah {
     }).build());
 
     public Decayinhwintah() {
+        ModNetwork.register();
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
         // Register the commonSetup method for modloading
         modEventBus.addListener(this::commonSetup);
 
         // Register the Deferred Register to the mod event bus so blocks get registered
+        ModSounds.SOUND_EVENTS.register(modEventBus);
         BLOCKS.register(modEventBus);
         // Register the Deferred Register to the mod event bus so items get registered
         ITEMS.register(modEventBus);
@@ -116,3 +119,6 @@ public class Decayinhwintah {
         }
     }
 }
+
+
+

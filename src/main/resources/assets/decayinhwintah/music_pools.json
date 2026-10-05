@@ -1,0 +1,18 @@
+{
+  "cooldown_fade_seconds": 4.0,
+  "day": [
+    "decayinhwintah:music.day1",
+    "decayinhwintah:music.day2",
+    "decayinhwintah:music.day3"
+  ],
+  "night": [
+    "decayinhwintah:music.night1",
+    "decayinhwintah:music.night2",
+    "decayinhwintah:music.night3",
+    "decayinhwintah:music.night4",
+    "decayinhwintah:music.night5"
+  ],
+  "menu": [
+    "decayinhwintah:music.menu"
+  ]
+}

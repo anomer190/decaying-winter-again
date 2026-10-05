@@ -1,0 +1,90 @@
+{
+  "music.day1": {
+    "sounds": [
+      {
+        "name": "decayinhwintah:music/day1",
+        "stream": true
+      }
+    ]
+  },
+  "music.day2": {
+    "sounds": [
+      {
+        "name": "decayinhwintah:music/day2",
+        "stream": true
+      }
+    ]
+  },
+  "music.day3": {
+    "sounds": [
+      {
+        "name": "decayinhwintah:music/day3",
+        "stream": true
+      }
+    ]
+  },
+  "music.night1": {
+    "sounds": [
+      {
+        "name": "decayinhwintah:music/night1",
+        "stream": true
+      }
+    ]
+  },
+  "music.night2": {
+    "sounds": [
+      {
+        "name": "decayinhwintah:music/night2",
+        "stream": true
+      }
+    ]
+  },
+  "music.night3": {
+    "sounds": [
+      {
+        "name": "decayinhwintah:music/night3",
+        "stream": true
+      }
+    ]
+  },
+  "music.night4": {
+    "sounds": [
+      {
+        "name": "decayinhwintah:music/night4",
+        "stream": true
+      }
+    ]
+  },
+  "music.night5": {
+    "sounds": [
+      {
+        "name": "decayinhwintah:music/night5",
+        "stream": true
+      }
+    ]
+  },
+  "music.night6": {
+    "sounds": [
+      {
+        "name": "decayinhwintah:music/mainmenu",
+        "stream": true
+      }
+    ]
+  },
+  "music.debugsong": {
+    "sounds": [
+      {
+        "stream": true,
+        "name": "decayinhwintah:music/debugsong"
+      }
+    ]
+  },
+  "music.menu": {
+    "sounds": [
+      {
+        "name": "decayinhwintah:music/mainmenu",
+        "stream": true
+      }
+    ]
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "ron.silly.decayinhwintah.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "refmap": "decayinhwintah.refmap.json",
+  "mixins": [
+    "PlayerSprintMixin"
+  ],
+  "client": [
+    "LocalPlayerSprintMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
