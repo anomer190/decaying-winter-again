@@ -1,0 +1,53 @@
+{
+  "block.snow.step": {
+    "replace": true,
+    "sounds": [
+      "decayinhwintah:footsteps/snow1",
+      "decayinhwintah:footsteps/snow2",
+      "decayinhwintah:footsteps/snow3"
+    ]
+  },
+  "block.stone.step": {
+    "replace": true,
+    "sounds": [
+      "decayinhwintah:footsteps/stone1",
+      "decayinhwintah:footsteps/stone2",
+      "decayinhwintah:footsteps/stone3",
+      "decayinhwintah:footsteps/stone4"
+    ]
+  },
+  "block.gravel.step": {
+    "replace": true,
+    "sounds": [
+      "decayinhwintah:footsteps/dirt1",
+      "decayinhwintah:footsteps/dirt2",
+      "decayinhwintah:footsteps/dirt3"
+    ]
+  },
+  "block.grass.step": {
+    "replace": true,
+    "sounds": [
+      "decayinhwintah:footsteps/grass1",
+      "decayinhwintah:footsteps/grass2",
+      "decayinhwintah:footsteps/grass3",
+      "decayinhwintah:footsteps/grass4"
+    ]
+  },
+  "entity.player.small_fall": {
+    "replace": true,
+    "sounds": ["decayinhwintah:footsteps/fall"]
+  },
+  "entity.player.big_fall": {
+    "replace": true,
+    "sounds": ["decayinhwintah:footsteps/fall"]
+  },
+  "block.wood.step": {
+    "replace": true,
+    "sounds": [
+      "decayinhwintah:footsteps/planks1",
+      "decayinhwintah:footsteps/planks2",
+      "decayinhwintah:footsteps/planks3",
+      "decayinhwintah:footsteps/planks4"
+    ]
+  }
+}

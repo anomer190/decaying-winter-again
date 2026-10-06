@@ -16,7 +16,7 @@ import java.nio.charset.StandardCharsets;
 import java.util.HashSet;
 import java.util.Set;
 
-/** Registers sound events named by music_pools.json before Forge freezes the sound registry. */
+/** Registers sound events listed by the mod's music and one-shot sound configuration. */
 public final class ModSounds {
     private static final Logger LOGGER = LogUtils.getLogger();
     public static final DeferredRegister<SoundEvent> SOUND_EVENTS =
@@ -24,33 +24,46 @@ public final class ModSounds {
     private static final Set<ResourceLocation> REGISTERED_IDS = new HashSet<>();
 
     static {
-        registerPlaylistEvents();
+        registerConfiguredEvents();
     }
 
     private ModSounds() {}
 
-    private static void registerPlaylistEvents() {
-        String resourcePath = "/assets/" + Decayinhwintah.MODID + "/music_pools.json";
-        try (InputStream stream = ModSounds.class.getResourceAsStream(resourcePath)) {
-            if (stream == null) {
-                LOGGER.warn("Could not find {}; no custom music events registered", resourcePath);
-                return;
-            }
-            try (InputStreamReader reader = new InputStreamReader(stream, StandardCharsets.UTF_8)) {
-                JsonObject root = JsonParser.parseReader(reader).getAsJsonObject();
-                registerArray(root.getAsJsonArray("menu"));
-                registerArray(root.getAsJsonArray("day"));
-                registerArray(root.getAsJsonArray("night"));
-                if (root.has("scenarios") && root.get("scenarios").isJsonObject()) {
-                    for (var entry : root.getAsJsonObject("scenarios").entrySet()) {
-                        if (entry.getValue().isJsonArray()) registerArray(entry.getValue().getAsJsonArray());
+    private static void registerConfiguredEvents() {
+        String musicPath = "/assets/" + Decayinhwintah.MODID + "/music_pools.json";
+        String effectsPath = "/assets/" + Decayinhwintah.MODID + "/sound_effects.json";
+        try {
+            try (InputStream stream = ModSounds.class.getResourceAsStream(musicPath)) {
+                if (stream != null) {
+                    try (InputStreamReader reader = new InputStreamReader(stream, StandardCharsets.UTF_8)) {
+                        JsonObject root = JsonParser.parseReader(reader).getAsJsonObject();
+                        registerArray(root.getAsJsonArray("menu"));
+                        registerArray(root.getAsJsonArray("day"));
+                        registerArray(root.getAsJsonArray("night"));
+                        if (root.has("scenarios") && root.get("scenarios").isJsonObject()) {
+                            for (var entry : root.getAsJsonObject("scenarios").entrySet()) {
+                                if (entry.getValue().isJsonArray()) registerArray(entry.getValue().getAsJsonArray());
+                            }
+                        }
                     }
+                } else {
+                    LOGGER.warn("Could not find {}; no custom music events registered", musicPath);
+                }
+            }
+            try (InputStream stream = ModSounds.class.getResourceAsStream(effectsPath)) {
+                if (stream != null) {
+                    try (InputStreamReader reader = new InputStreamReader(stream, StandardCharsets.UTF_8)) {
+                        JsonObject root = JsonParser.parseReader(reader).getAsJsonObject();
+                        registerArray(root.getAsJsonArray("effects"));
+                    }
+                } else {
+                    LOGGER.warn("Could not find {}; no custom one-shot sound events registered", effectsPath);
                 }
             }
         } catch (Exception exception) {
-            LOGGER.error("Could not register music events from {}", resourcePath, exception);
+            LOGGER.error("Could not register sound events from configuration", exception);
         }
-        LOGGER.info("Registered {} custom music sound events", REGISTERED_IDS.size());
+        LOGGER.info("Registered {} custom sound events", REGISTERED_IDS.size());
     }
 
     private static void registerArray(JsonArray entries) {
@@ -58,7 +71,7 @@ public final class ModSounds {
         entries.forEach(entry -> {
             ResourceLocation id = ResourceLocation.tryParse(entry.getAsString());
             if (id == null || !Decayinhwintah.MODID.equals(id.getNamespace())) {
-                LOGGER.warn("Ignoring invalid or foreign music event ID {}", entry);
+                LOGGER.warn("Ignoring invalid or foreign sound event ID {}", entry);
                 return;
             }
             if (REGISTERED_IDS.add(id)) {
@@ -67,4 +80,3 @@ public final class ModSounds {
         });
     }
 }
-
